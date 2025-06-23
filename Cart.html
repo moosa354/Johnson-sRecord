@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Cart</title>
+
+        <!-- CSS FILES -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/slick.css"/>
+
+        <link href="css/tooplate-little-fashion.css" rel="stylesheet">
+
+         <style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+  background-color: #ffffff;
+  color: #222222;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode toggle */
+.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* Toggle button */
+.toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: inherit;
+  z-index: 9999;
+}
+</style>
+<!--
+
+Tooplate 2127 Little Fashion
+
+https://www.tooplate.com/view/2127-little-fashion
+
+-->
+    </head>
+    
+    <body>
+
+        <section class="preloader">
+            <div class="spinner">
+                <span class="sk-inner-circle"></span>
+            </div>
+        </section>
+    
+        <main>
+
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="toggle-btn" onclick="toggleMode()">🌙</button> 
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <a class="navbar-brand" href="index.html">
+                        <strong><img src="images/PNG johnsohns records.png" width="20%" height="20%" alt="logo"/></strong>
+                    </a>
+
+                    <div class="d-lg-none">
+                        <a href="sign-in.html" class="bi-person custom-icon me-3"></a>
+
+                        <a  href="Cart.html" class="nav-link active"></a>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">About Us</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="media.html">Media</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Biography.html">Biography</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link " href="products.html">Products</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+
+                        <div class="d-none d-lg-block">
+                            <a href="sign-in.html" class="bi-person custom-icon me-3"></a>
+
+                            <a href="Cart.html" class="bi-bag custom-icon"></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            
+            <style>
+                .cart-table img {
+                  width: 80px;
+                  height: auto;
+                }
+                .cart-total-box {
+                  border: 1px solid #e0e0e0;
+                  padding: 20px;
+                  border-radius: 10px;
+                  background: #f9f9f9;
+                }
+              </style>
+            </head>
+            <body>
+              <main class="container py-5">
+                <h2 class="mb-4">Your Shopping Cart</h2>
+          
+                <div class="table-responsive">
+                  <table class="table cart-table align-middle">
+                    <thead>
+                      <tr>
+                        <th>Product</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tbody id="cart-body">
+                     
+                    </tbody>
+                  </table>
+                </div>
+          
+                <div class="row justify-content-end">
+                  <div class="col-md-4">
+                    <div class="cart-total-box">
+                      <h5>Cart Summary</h5>
+                      <p>Subtotal: £<span id="subtotal">0</span></p>
+                      <p>Shipping: £<span id="shipping">0</span></p>
+                      <hr>
+                      <h5>Total: £<span id="total">0</span></h5>
+                      <a href="products.html" class="btn btn-dark w-100 mt-3">Continiue Shopping</a>
+                      <a href="#" class="btn btn-dark w-100 mt-3">Proceed to Checkout</a>
+                    </div>
+                  </div>
+                </div>
+              </main>
+          
+              <script>
+                const cartBody = document.getElementById("cart-body");
+                let cart = JSON.parse(localStorage.getItem("cart")) || [];
+          
+                function renderCart() {
+                  cartBody.innerHTML = "";
+                  let subtotal = 0;
+          
+                  cart.forEach((item, index) => {
+                    const total = item.price * item.quantity;
+                    subtotal += total;
+                    cartBody.innerHTML += `
+                      <tr>
+                        <td><img src="${item.image}" class="img-thumbnail" alt="${item.title}"></td>
+                        <td>${item.title}</td>
+                        <td>$${item.price}</td>
+                        <td><input type="number" min="1" value="${item.quantity}" class="form-control" onchange="updateQty(${index}, this.value)"></td>
+                        <td>$${total}</td>
+                        <td><a href="#" class="text-danger" onclick="removeItem(${index})"><i class="bi bi-x-lg"></i></a></td>
+                      </tr>
+                    `;
+                  });
+          
+                  document.getElementById("subtotal").innerText = subtotal;
+                  document.getElementById("total").innerText = subtotal + 0;
+                }
+          
+                function updateQty(index, qty) {
+                  cart[index].quantity = parseInt(qty);
+                  localStorage.setItem("cart", JSON.stringify(cart));
+                  renderCart();
+                }
+          
+                function removeItem(index) {
+                  cart.splice(index, 1);
+                  localStorage.setItem("cart", JSON.stringify(cart));
+                  renderCart();
+                }
+          
+                renderCart();
+              </script>
+            
+
+                       
+
+                                
+
+             
+
+            <footer class="site-footer">
+                <div class="container">
+                    <div class="row">
+    
+                        <div class="col-lg-3 col-10 me-auto mb-4">
+                            <h4 class="text-white mb-3"><a href="index.html">Johnson</a> Records</h4>
+                            <p class="copyright-text text-muted mt-lg-5 mb-4 mb-lg-0">Copyright © 2025 <strong>Johnson Records</strong></p>
+                            <br>
+                            <p class="copyright-text">Designed by <a href="https://www.tooplate.com/" target="_blank">Moosa Rauf</a></p>
+                        </div>
+    
+                        <div class="col-lg-5 col-8">
+                            <h5 class="text-white mb-3">Sitemap</h5>
+    
+                            <ul class="footer-menu d-flex flex-wrap">
+                                <li class="footer-menu-item"><a href="index.html" class="footer-menu-link">Home</a></li>
+    
+                                <li class="footer-menu-item"><a href="about.html" class="footer-menu-link">About Us</a></li>
+    
+                                <li class="footer-menu-item"><a href="media.html" class="footer-menu-link">Media</a></li>
+    
+                                <li class="footer-menu-item"><a href="sign-in.html" class="footer-menu-link">Sign in</a></li>
+    
+                                <li class="footer-menu-item"><a href="#" class="footer-menu-link">Contact</a></li>
+                            </ul>
+                        </div>
+    
+                        <div class="col-lg-3 col-4">
+                            <h5 class="text-white mb-3">Social</h5>
+    
+                            <ul class="social-icon">
+    
+                                <ul class="social-icon">
+                                    <li><a href="https://youtube.com" target="_blank" class="social-icon-link bi-youtube"></a></li>
+                                    <li><a href="https://wa.me/1234567890" target="_blank" class="social-icon-link bi-whatsapp"></a></li>
+                                    <li><a href="https://instagram.com/yourusername" target="_blank" class="social-icon-link bi-instagram"></a></li>
+                                    <li><a href="https://skype.com" target="_blank" class="social-icon-link bi-skype"></a></li>
+                                </ul>
+                                
+                                
+                            </ul>
+                        </div>
+    
+                    </div>
+                </div>
+            </footer>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/Headroom.js"></script>
+        <script src="js/jQuery.headroom.js"></script>
+        <script src="js/slick.min.js"></script>
+        <script src="js/custom.js"></script>
+        <script>
+    function openModal(src) {
+      document.getElementById('modal-image').src = src;
+      document.getElementById('modal').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('modal').classList.remove('active');
+    }
+
+    // Optional: Close modal when clicking outside the image
+    document.getElementById('modal').addEventListener('click', function (e) {
+      if (e.target === this) closeModal();
+    });
+    </script>
+      <script>
+    function toggleMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+  </script>
+
+    </body>
+</html>

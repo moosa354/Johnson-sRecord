@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Product</title>
+
+        <!-- CSS FILES -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+        <link rel="stylesheet" href="css/slick.css"/>
+
+        <link href="css/tooplate-little-fashion.css" rel="stylesheet">
+         <style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, sans-serif;
+  background-color: #ffffff;
+  color: #222222;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode toggle */
+.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* Toggle button */
+.toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: inherit;
+  z-index: 9999;
+}
+</style>
+<!--
+
+Tooplate 2127 Little Fashion
+
+https://www.tooplate.com/view/2127-little-fashion
+
+-->
+    </head>
+    
+    <body>
+
+        <section class="preloader">
+            <div class="spinner">
+                <span class="sk-inner-circle"></span>
+            </div>
+        </section>
+    
+        <main>
+
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <button class="toggle-btn" onclick="toggleMode()">🌙</button>
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <a class="navbar-brand" href="index.html">
+                        <strong><img src="images/PNG johnsohns records.png" width="20%" height="20%" alt="logo"/></strong>
+                    </a>
+                
+                    <div class="d-lg-none">
+                        <a href="sign-in.html" class="bi-person custom-icon me-3"></a>
+
+                        <a href="Cart.html" class="bi-bag custom-icon"></a>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">About Us</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="media.html">Media</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Biography.html">Biography</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active" href="products.html">Products</a>
+                            </li>
+
+                            
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+
+                        <div class="d-none d-lg-block">
+                            <a href="sign-in.html" class="bi-person custom-icon me-3"></a>
+
+                            <a href="Cart.html" class="bi-bag custom-icon"></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            
+
+            <section class="products section-padding">
+                <div class="container">
+                    <div class="row">
+                        
+                        <div class="col-12">
+                            <h2 class="mb-5">New Arrivals</h2>
+                        </div>
+
+                        <div class="col-lg-4 col-12 mb-3">
+                            <div class="product-thumb">
+                                <a href="product-detail.html">
+                                    <img src="products/Imran hoodie.png" class="img-fluid product-image" alt="">
+                                </a>
+
+                                <div class="product-top d-flex">
+                                    <span class="product-alert me-auto">Products</span>
+
+                                    <a href="#" class="bi-heart-fill product-icon"></a>
+                                </div>
+
+                                <div class="product-info d-flex">
+                                    <div>
+                                        <h5 class="product-title mb-0">
+                                            <a href="product-detail.html" class="product-title-link">Imran Khan Hoodie</a>
+                                        </h5>
+
+                                        <p class="product-p">Original design</p>
+                                    </div>
+
+                                    <small class="product-price text-muted ms-auto">£39.99</small>
+                                    <a href="#" class="btn btn-dark mt-3" onclick="addToCart('Imran Khan Hoodie', 39.99, 'products/Imran hoodie.png')">Buy Now</a>
+
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                        <div class="col-lg-4 col-12 mb-3">
+                            <div class="product-thumb">
+                                <a href="product-detail1.html">
+                                    <img src="products/Zacks Hooodie.png" class="img-fluid product-image" alt="">
+                                </a>
+
+                                <div class="product-top d-flex">
+                                    <span class="product-alert">Discounted Price</span>
+
+                                    <a href="#" class="bi-heart-fill product-icon ms-auto"></a>
+                                </div>
+
+                                
+                                <div class="product-info d-flex">
+                                    <div>
+                                        <h5 class="product-title mb-0">
+                                            <a href="product-detail2 - Copy.html" class="product-title-link">Zack Knight Hoodie</a>
+                                        </h5>
+
+                                        <p class="product-p">Costume package</p>
+                                    </div>
+
+                                    <small class="product-price text-muted ms-auto">£19.99</small>
+                                    <a href="#" class="btn btn-dark mt-3" onclick="addToCart('Zack Knight Hoodie', 19.99, 'products/Zacks Hoodie.png')">Buy Now</a>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4 col-12">
+                            <div class="product-thumb">
+                                <a href="product-detail2.html">
+                                    <img src="products/singhs hooduie.png" class="img-fluid product-image" alt="">
+                                </a>
+
+                                <div class="product-top d-flex">
+                                    <a href="#" class="bi-heart-fill product-icon ms-auto"></a>
+                                </div>
+
+                                <div class="product-info d-flex">
+                                    <div>
+                                        <h5 class="product-title mb-0">
+                                            <a href="product-detail2.html" class="product-title-link">Arjit Singh Hoodie</a>
+                                        </h5>
+
+                                        <p class="product-p">One of a kind</p>
+                                    </div>
+
+                                    <small class="product-price text-muted ms-auto">£14.50</small>
+                                    <a href="#" class="btn btn-dark mt-3" onclick="addToCart('Arjit Singh Hoodie', 14.50, 'products/singhs hooduie')">Buy Now</a>
+                                    
+
+                                </div>
+                            </div>
+                        </div>
+
+                       
+
+                                
+
+              
+            </section>
+
+        </main>
+
+        <footer class="site-footer">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-10 me-auto mb-4">
+                        <h4 class="text-white mb-3"><a href="index.html">Johnson</a> Records</h4>
+                        <p class="copyright-text text-muted mt-lg-5 mb-4 mb-lg-0">Copyright © 2025 <strong>Johnson Records</strong></p>
+                        <br>
+                        <p class="copyright-text">Designed by <a href="https://www.tooplate.com/" target="_blank">Moosa Rauf</a></p>
+                    </div>
+
+                    <div class="col-lg-5 col-8">
+                        <h5 class="text-white mb-3">Sitemap</h5>
+
+                        <ul class="footer-menu d-flex flex-wrap">
+                            <li class="footer-menu-item"><a href="index.html" class="footer-menu-link">Home</a></li>
+
+                            <li class="footer-menu-item"><a href="about.html" class="footer-menu-link">About Us</a></li>
+
+                            <li class="footer-menu-item"><a href="media.html" class="footer-menu-link">Media</a></li>
+
+                            <li class="footer-menu-item"><a href="sign-in.html" class="footer-menu-link">Sign in</a></li>
+
+                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Contact</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-4">
+                        <h5 class="text-white mb-3">Social</h5>
+
+                        <ul class="social-icon">
+
+                            <ul class="social-icon">
+                                <li><a href="https://youtube.com" target="_blank" class="social-icon-link bi-youtube"></a></li>
+                                <li><a href="https://wa.me/1234567890" target="_blank" class="social-icon-link bi-whatsapp"></a></li>
+                                <li><a href="https://instagram.com/yourusername" target="_blank" class="social-icon-link bi-instagram"></a></li>
+                                <li><a href="https://skype.com" target="_blank" class="social-icon-link bi-skype"></a></li>
+                            </ul>
+                            
+                            
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/Headroom.js"></script>
+        <script src="js/jQuery.headroom.js"></script>
+        <script src="js/slick.min.js"></script>
+        <script src="js/custom.js"></script>
+ <script>
+    function addToCart(title, price, image) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      let existing = cart.find(item => item.title === title);
+      if (existing) {
+        existing.quantity += 1;
+      } else {
+        cart.push({ title, price, image, quantity: 1 });
+      }
+      localStorage.setItem("cart", JSON.stringify(cart));
+      window.location.href = "cart.html"; // redirect to cart
+    }
+  </script>
+  
+    </body>
+</html>
